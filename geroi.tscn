@@ -334,6 +334,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_5001y"]
 resource_name = "walk_left"
+length = 2.0
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
