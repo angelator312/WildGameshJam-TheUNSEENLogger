@@ -16,4 +16,4 @@ func is_ended():
 	print(pos," ",tree_layer.get_cell_atlas_coords(pos))
 	if tree_layer.get_cell_atlas_coords(pos).x==-1:
 		get_tree().paused=true
-		$TileMapLayer.visible=true
+		$Node.visible=true
