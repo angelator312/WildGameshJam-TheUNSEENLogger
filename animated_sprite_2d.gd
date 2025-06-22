@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var enable_gravity:=false
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
+const SPRINT_ACCELERATE=2
 func _ready():
 	$Camera2D.enabled=enable_camera
 
@@ -25,5 +26,5 @@ func _physics_process(delta: float) -> void:
 		velocity.y = directionY * SPEED
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
-
+	velocity*=lerp(1,SPRINT_ACCELERATE,Input.get_action_strength("sprint"))
 	move_and_slide()
