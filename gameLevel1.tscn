@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=4 uid="uid://bt5jomc7kwqp1"]
+
+[ext_resource type="PackedScene" uid="uid://cooqm5wnbxofy" path="res://geroi.tscn" id="1_o58gp"]
+[ext_resource type="TileSet" uid="uid://bdw5jfdqcd2ov" path="res://tileset_for_tree.tres" id="2_jbix7"]
+[ext_resource type="TileSet" uid="uid://d05agfyvdy2b0" path="res://tileset_for_ui.tres" id="3_jbix7"]
+[ext_resource type="Texture2D" uid="uid://115ci3h0vy2y" path="res://kenney_ui-pack-pixel-adventure/Tiles/Large tiles/Thick outline/tile_0000.png" id="4_hlnxh"]
+[ext_resource type="Script" uid="uid://boa01yfgujj66" path="res://go_to_start.gd" id="5_t3yan"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hlnxh"]
+texture = ExtResource("4_hlnxh")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 16, -16, -16, 16, -16, 16, 16)
+
+[sub_resource type="TileSet" id="TileSet_t3yan"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
+sources/0 = SubResource("TileSetAtlasSource_hlnxh")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hlnxh"]
+size = Vector2(91, 116.5)
+
+[node name="GameLevel1" type="Node2D"]
+
+[node name="AnimatedSprite2D" parent="." instance=ExtResource("1_o58gp")]
+position = Vector2(282, 583)
+collision_layer = 3
+collision_mask = 3
+enable_camera = true
+
+[node name="Layers" type="Node2D" parent="."]
+
+[node name="TreeLayer" type="TileMapLayer" parent="Layers"]
+tile_set = ExtResource("2_jbix7")
+
+[node name="UIAndPathLayer" type="TileMapLayer" parent="Layers"]
+position = Vector2(0, 6.886)
+tile_map_data = PackedByteArray("AAAAABMAAAAAAAAAAAABABMAAAAAAAAAAAACABMAAAAAAAAAAAADABMAAAAAAAAAAAAEABMAAAAAAAAAAAAFABMAAAAAAAAAAAAGABMAAAAAAAAAAAAHABMAAAAAAAAAAAAIABMAAAAAAAAAAAAJABMAAAAAAAAAAAAKABMAAAAAAAAAAAALABMAAAAAAAAAAAAMABMAAAAAAAAAAAANABMAAAAAAAAAAAAOABMAAAAAAAAAAAAPABMAAAAAAAAAAAAQABMAAAAAAAAAAAARABMAAAAAAAAAAAASABMAAAAAAAAAAAATABMAAAAAAAAAAAAUABMAAAAAAAAAAAAVABMAAAAAAAAAAAAWABMAAAAAAAAAAAAXABMAAAAAAAAAAAAYABMAAAAAAAAAAAAZABMAAAAAAAAAAAAaABMAAAAAAAAAAAAbABMAAAAAAAAAAAAcABMAAAAAAAAAAAAdABMAAAAAAAAAAAAeABMAAAAAAAAAAAAfABMAAAAAAAAAAAAgABMAAAAAAAAAAAAhABMAAAAAAAAAAAAiABMAAAAAAAAAAAAjABMAAAAAAAAAAAD//xIAAAAAAAAAAAD+/xEAAAAAAAAAAAD9/xAAAAAAAAAAAAD8/w8AAAAAAAAAAAD7/w4AAAAAAAAAAAD6/w0AAAAAAAAAAAD5/wwAAAAAAAAAAAD4/wsAAAAAAAAAAAD3/woAAAAAAAAAAAD2/wkAAAAAAAAAAAA=")
+tile_set = ExtResource("3_jbix7")
+
+[node name="CollisuinLayer" type="TileMapLayer" parent="Layers"]
+position = Vector2(0, 6.886)
+tile_map_data = PackedByteArray("AAAAABMAAAAAAAAAAAD//xIAAAAAAAAAAAD+/xEAAAAAAAAAAAD9/xAAAAAAAAAAAAD8/w8AAAAAAAAAAAD7/w4AAAAAAAAAAAD6/w0AAAAAAAAAAAD5/wwAAAAAAAAAAAD4/wsAAAAAAAAAAAD3/woAAAAAAAAAAAD2/wkAAAAAAAAAAAABABMAAAAAAAAAAAACABMAAAAAAAAAAAADABMAAAAAAAAAAAAEABMAAAAAAAAAAAAFABMAAAAAAAAAAAAGABMAAAAAAAAAAAAHABMAAAAAAAAAAAAIABMAAAAAAAAAAAAJABMAAAAAAAAAAAAKABMAAAAAAAAAAAALABMAAAAAAAAAAAAMABMAAAAAAAAAAAANABMAAAAAAAAAAAAOABMAAAAAAAAAAAAPABMAAAAAAAAAAAAQABMAAAAAAAAAAAARABMAAAAAAAAAAAASABMAAAAAAAAAAAATABMAAAAAAAAAAAAUABMAAAAAAAAAAAAVABMAAAAAAAAAAAAWABMAAAAAAAAAAAAXABMAAAAAAAAAAAAYABMAAAAAAAAAAAAZABMAAAAAAAAAAAAaABMAAAAAAAAAAAAbABMAAAAAAAAAAAAcABMAAAAAAAAAAAAdABMAAAAAAAAAAAAeABMAAAAAAAAAAAAfABMAAAAAAAAAAAAgABMAAAAAAAAAAAAhABMAAAAAAAAAAAAiABMAAAAAAAAAAAAjABMAAAAAAAAAAAD1/wgAAAAAAAAAAAD0/wgAAAAAAAAAAADz/wgAAAAAAAAAAADy/wgAAAAAAAAAAADx/wgAAAAAAAAAAADw/wgAAAAAAAAAAADv/wgAAAAAAAAAAADu/wgAAAAAAAAAAADt/wgAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_t3yan")
+
+[node name="Go to start" type="Area2D" parent="."]
+script = ExtResource("5_t3yan")
+
+[node name="Go to Start" type="Label" parent="Go to start"]
+offset_left = -378.0
+offset_top = 244.0
+offset_right = -295.0
+offset_bottom = 293.0
+text = "Go to start
+"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Go to start"]
+position = Vector2(-428, 194)
+shape = SubResource("RectangleShape2D_hlnxh")
+
+[connection signal="body_entered" from="Go to start" to="Go to start" method="_on_body_entered"]
