@@ -18,10 +18,11 @@ config/icon="res://icon.svg"
 [autoload]
 
 GlobalScript="*res://GlobalScript.gd"
+EventAudio="*res://addons/event_audio/scenes/event_audio_autoload.tscn"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/goutte.animated_shape_2d/plugin.cfg", "res://addons/script-ide/plugin.cfg", "res://addons/slidergamepad/plugin.cfg")
+enabled=PackedStringArray("res://addons/event_audio/plugin.cfg", "res://addons/goutte.animated_shape_2d/plugin.cfg", "res://addons/script-ide/plugin.cfg", "res://addons/slidergamepad/plugin.cfg")
 
 [input]
 
