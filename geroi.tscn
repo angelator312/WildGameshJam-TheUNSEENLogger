@@ -175,7 +175,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vlefb")
 }],
-"loop": true,
+"loop": false,
 "name": &"walk_down",
 "speed": 8.0
 }, {
@@ -207,7 +207,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1ptm8")
 }],
-"loop": true,
+"loop": false,
 "name": &"walk_left",
 "speed": 8.0
 }, {
@@ -239,7 +239,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_l3qad")
 }],
-"loop": true,
+"loop": false,
 "name": &"walk_right",
 "speed": 8.0
 }, {
@@ -271,7 +271,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_524b8")
 }],
-"loop": true,
+"loop": false,
 "name": &"walk_up",
 "speed": 6.0
 }]
@@ -364,7 +364,7 @@ script = ExtResource("1_80eo1")
 position = Vector2(2.26498e-05, 1.47186e-05)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_ivbio")
-animation = &"walk_down"
+animation = &"walk_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 7.71681)
