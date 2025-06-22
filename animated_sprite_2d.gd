@@ -39,14 +39,12 @@ func _physics_process(delta: float) -> void:
 		velocity.y*=lerp(1,SPRINT_ACCELERATE,Input.get_action_strength("sprint"))
 	if direction:
 		var vel=velocity.normalized().x
-		#print(animation_player.current_animation)
 		if vel==-1 and animation_player.current_animation!="walk_left":
 			animation_player.play("walk_left")
 		if vel==1 and animation_player.current_animation!="walk_right":
 			animation_player.play("walk_right")
 	if directionY:
 		var vel=velocity.normalized().y
-		#print(animation_player.current_animation)
 		if vel==-1 and animation_player.current_animation!="walk_up":
 			animation_player.play("walk_up")
 		if vel==1 and animation_player.current_animation!="walk_down":
@@ -87,9 +85,10 @@ func play_walk_up():
 
 func play_walk_left():
 	animated_sprite_2d.play("walk_left")
-	
+
 
 func play_walk_right():
 	animated_sprite_2d.play("walk_right")
+
 func stop_walk():
 	animated_sprite_2d.stop()
