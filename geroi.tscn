@@ -282,6 +282,7 @@ height = 104.177
 
 [sub_resource type="Animation" id="Animation_80eo1"]
 resource_name = "walk_up"
+length = 2.0
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
