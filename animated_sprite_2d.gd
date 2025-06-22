@@ -31,12 +31,13 @@ func _physics_process(delta: float) -> void:
 		velocity.y = directionY * SPEED
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
-	if direction:
-		#animation_player.play("walk_up") 
-		animation_player.play("walk_down") 
-		#animation_player.play("walk_right") 
-		#animation_player.play("walk_left")
-	velocity*=lerp(1,SPRINT_ACCELERATE,Input.get_action_strength("sprint"))
+	if direction or directionY:
+		if velocity.normalized().x:
+			animation_player.play("walk_left")
+		else:
+			animation_player.play("walk_right")
+			
+		
 	if direction:
 		velocity.x*=lerp(1,SPRINT_ACCELERATE,Input.get_action_strength("sprint"))
 	if directionY:
