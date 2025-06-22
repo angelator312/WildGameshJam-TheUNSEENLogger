@@ -2,6 +2,7 @@ extends CharacterBody2D
 @export var enable_camera:=false
 @export var enable_gravity:=false
 @export var tree_layer:TileMapLayer
+@export var explode_scene:PackedScene=preload("res://explode.tscn")
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const SPRINT_ACCELERATE=2
@@ -32,12 +33,20 @@ func chop():
 	var pos=tree_layer.local_to_map(position)
 	if tree_layer.get_cell_atlas_coords(pos).x>-1:
 		chopPos(pos)
+		var exp=explode_scene.instantiate()
+		exp.z_index=-1
+		exp.position=position+Vector2(0,-20)
+		get_parent().add_child(exp)
+		exp.explode()
 		
-		#TODO: Implement deleting the entire tree
-		
-func chopPos(pos:Vector2):
-	if tree_layer.get_cell_atlas_coords(pos).x>-1:
-		tree_layer.set_cell(pos)
-		const vectors=[Vector2(0,1),Vector2(1,0),Vector2(0,-1),Vector2(-1,0),]
-		for e in vectors:
-			chopPos(pos+e)
+func chopPos(start_pos:Vector2):
+	var q:Array
+	q.push_back(start_pos)
+	while(!q.is_empty()):
+		var pos=q.front()
+		q.pop_front()
+		if tree_layer.get_cell_atlas_coords(pos).x>-1:
+			tree_layer.set_cell(pos)
+			const vectors=[Vector2(0,1),Vector2(1,0),Vector2(0,-1),Vector2(-1,0),]
+			for e in vectors:
+				q.push_back(pos+e)
