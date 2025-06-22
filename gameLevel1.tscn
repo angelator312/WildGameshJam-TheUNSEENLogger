@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://bt5jomc7kwqp1"]
+[gd_scene load_steps=14 format=4 uid="uid://bt5jomc7kwqp1"]
 
 [ext_resource type="PackedScene" uid="uid://cooqm5wnbxofy" path="res://geroi.tscn" id="1_o58gp"]
 [ext_resource type="TileSet" uid="uid://bdw5jfdqcd2ov" path="res://tileset_for_tree.tres" id="2_jbix7"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://boa01yfgujj66" path="res://go_to_start.gd" id="5_t3yan"]
 [ext_resource type="Script" uid="uid://v28wi15bs12k" path="res://show_explorer_card.gd" id="7_njfpx"]
 [ext_resource type="PackedScene" uid="uid://dd1hkxdpsfnhq" path="res://game_end.tscn" id="8_3ohja"]
+[ext_resource type="Texture2D" uid="uid://bhujiqj56btla" path="res://assets/gate.png" id="9_4by2e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hlnxh"]
 texture = ExtResource("4_hlnxh")
@@ -63,15 +64,14 @@ tile_set = ExtResource("5_njfpx")
 script = ExtResource("5_t3yan")
 
 [node name="Go to Start" type="Label" parent="Go to start"]
-offset_left = -378.0
-offset_top = 244.0
-offset_right = -295.0
-offset_bottom = 293.0
-text = "Go to start
-"
+offset_left = -373.0
+offset_top = 127.0
+offset_right = -290.0
+offset_bottom = 150.0
+text = "Go to start"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Go to start"]
-position = Vector2(-428, 194)
+position = Vector2(-426, 203)
 shape = SubResource("RectangleShape2D_hlnxh")
 
 [node name="ExplorerCard" type="Area2D" parent="."]
@@ -84,6 +84,11 @@ shape = SubResource("RectangleShape2D_3ohja")
 [node name="GameEnd" parent="." node_paths=PackedStringArray("tree_layer") instance=ExtResource("8_3ohja")]
 position = Vector2(9630, 3115)
 tree_layer = NodePath("../Layers/TreeLayer")
+
+[node name="Gate" type="Sprite2D" parent="."]
+position = Vector2(-427, 179)
+scale = Vector2(1.7, 1.81111)
+texture = ExtResource("9_4by2e")
 
 [connection signal="chop_tree" from="AnimatedSprite2D" to="GameEnd" method="is_ended"]
 [connection signal="body_entered" from="Go to start" to="Go to start" method="_on_body_entered"]
