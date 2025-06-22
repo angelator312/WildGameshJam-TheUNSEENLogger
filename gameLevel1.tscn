@@ -82,7 +82,7 @@ position = Vector2(18550, 6710)
 shape = SubResource("RectangleShape2D_3ohja")
 
 [node name="GameEnd" parent="." node_paths=PackedStringArray("tree_layer") instance=ExtResource("8_3ohja")]
-position = Vector2(939, 446)
+position = Vector2(9630, 3115)
 tree_layer = NodePath("../Layers/TreeLayer")
 
 [connection signal="chop_tree" from="AnimatedSprite2D" to="GameEnd" method="is_ended"]
