@@ -8,7 +8,6 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-const SPRINT_ACCELERATE=2
 signal chop_tree
 func _ready():
 	$Camera2D.enabled=enable_camera
@@ -34,9 +33,9 @@ func _physics_process(delta: float) -> void:
 			
 		
 	if direction:
-		velocity.x*=lerp(1,SPRINT_ACCELERATE,Input.get_action_strength("sprint"))
+		velocity.x*=lerp(1.0,GlobalScript.sprint_speed,Input.get_action_strength("sprint"))
 	if directionY:
-		velocity.y*=lerp(1,SPRINT_ACCELERATE,Input.get_action_strength("sprint"))
+		velocity.y*=lerp(1.0,GlobalScript.sprint_speed,Input.get_action_strength("sprint"))
 	var norm= velocity.normalized()
 	if norm.x and norm.y:
 		norm.x=0
