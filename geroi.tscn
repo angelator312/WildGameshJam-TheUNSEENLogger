@@ -317,6 +317,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_ivbio"]
 resource_name = "walk_right"
+length = 2.0
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
