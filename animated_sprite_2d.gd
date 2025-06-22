@@ -34,8 +34,8 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		#animation_player.play("walk_up") minat
 		#animation_player.play("walk_down") minat
-		animation_player.play("walk_right")
-		#animation_player.play("walk_left")
+		#animation_player.play("walk_right") minat
+		animation_player.play("walk_left")
 	velocity*=lerp(1,SPRINT_ACCELERATE,Input.get_action_strength("sprint"))
 	move_and_slide()
 func chop():

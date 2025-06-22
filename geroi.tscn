@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://cooqm5wnbxofy"]
+[gd_scene load_steps=45 format=3 uid="uid://cooqm5wnbxofy"]
 
 [ext_resource type="Script" uid="uid://isjvtvvfu332" path="res://animated_sprite_2d.gd" id="1_80eo1"]
 [ext_resource type="Texture2D" uid="uid://bgontenh5bs5g" path="res://assets/Tilesheet/universal-lpc-sprite_male_01_full.png" id="2_80eo1"]
@@ -331,9 +331,27 @@ tracks/0/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_5001y"]
+resource_name = "walk_left"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_walk_left"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hlcgf"]
 _data = {
 &"walk_down": SubResource("Animation_hlcgf"),
+&"walk_left": SubResource("Animation_5001y"),
 &"walk_right": SubResource("Animation_ivbio"),
 &"walk_up": SubResource("Animation_80eo1")
 }
