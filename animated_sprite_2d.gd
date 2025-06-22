@@ -37,16 +37,20 @@ func _physics_process(delta: float) -> void:
 		#animation_player.play("walk_right") 
 		#animation_player.play("walk_left")
 	velocity*=lerp(1,SPRINT_ACCELERATE,Input.get_action_strength("sprint"))
+	if direction:
+		velocity.x*=lerp(1,SPRINT_ACCELERATE,Input.get_action_strength("sprint"))
+	if directionY:
+		velocity.y*=lerp(1,SPRINT_ACCELERATE,Input.get_action_strength("sprint"))
 	move_and_slide()
 func chop():
 	var pos=tree_layer.local_to_map(position)
 	if tree_layer.get_cell_atlas_coords(pos).x>-1:
 		chopPos(pos)
-		var exp=explode_scene.instantiate()
-		exp.z_index=-1
-		exp.position=position+Vector2(0,-20)
-		get_parent().add_child(exp)
-		exp.explode()
+		var expl=explode_scene.instantiate()
+		expl.z_index=-1
+		expl.position=position+Vector2(0,-20)
+		get_parent().add_child(expl)
+		expl.explode()
 		chop_tree.emit()
 		
 func chopPos(start_pos:Vector2):
@@ -76,3 +80,5 @@ func play_walk_left():
 
 func play_walk_right():
 	animated_sprite_2d.play("walk_right")
+func stop_walk():
+	animated_sprite_2d.stop()
