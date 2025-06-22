@@ -28,11 +28,12 @@ size = Vector2(682, 734)
 
 [node name="GameLevel1" type="Node2D"]
 
-[node name="AnimatedSprite2D" parent="." instance=ExtResource("1_o58gp")]
+[node name="AnimatedSprite2D" parent="." node_paths=PackedStringArray("tree_layer") instance=ExtResource("1_o58gp")]
 position = Vector2(576, 580)
 collision_layer = 3
 collision_mask = 3
 enable_camera = true
+tree_layer = NodePath("../Layers/TreeLayer")
 
 [node name="Layers" type="Node2D" parent="."]
 
