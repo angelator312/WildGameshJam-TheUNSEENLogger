@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=10 format=3 uid="uid://d05agfyvdy2b0"]
+[gd_resource type="TileSet" load_steps=11 format=3 uid="uid://d05agfyvdy2b0"]
 
 [ext_resource type="Texture2D" uid="uid://xbichm0u8kxp" path="res://kenney_ui-pack-pixel-adventure/Tilesheets/Large tiles/Thick outline/tilemap.png" id="1_73gnb"]
 
@@ -22,6 +22,9 @@ tile_data = PackedInt32Array(0, 65536, 0, 65536, 65536, 0, 131072, 65536, 0, 196
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_8cye3"]
 tile_data = PackedInt32Array(65536, 65536, 0, 131072, 65536, 0, 393216, 65536, 0, 1, 65536, 0, 196609, 65536, 0, 393217, 65536, 0, 2, 65536, 0, 196610, 65536, 0, 393218, 65536, 0, 3, 65536, 0, 262147, 65536, 0, 327683, 65536, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_73gnb"]
+tile_data = PackedInt32Array(0, 65536, 0, 1, 65536, 0, 65537, 65536, 0, 131073, 65536, 0, 196609, 65536, 0, 262145, 65536, 0, 327681, 65536, 0, 393217, 65536, 0, 2, 65536, 0)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1ainy"]
 texture = ExtResource("1_73gnb")
@@ -122,3 +125,4 @@ pattern_3 = SubResource("TileMapPattern_n6hdu")
 pattern_4 = SubResource("TileMapPattern_km5ld")
 pattern_5 = SubResource("TileMapPattern_i2t4f")
 pattern_6 = SubResource("TileMapPattern_8cye3")
+pattern_7 = SubResource("TileMapPattern_73gnb")

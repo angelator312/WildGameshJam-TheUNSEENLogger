@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://bxkflnnvdym5f"]
+[gd_scene load_steps=12 format=4 uid="uid://bxkflnnvdym5f"]
 
 [ext_resource type="Script" uid="uid://cenm2ydqhm6th" path="res://main_level.gd" id="1_oi3di"]
 [ext_resource type="TileSet" uid="uid://bdw5jfdqcd2ov" path="res://tileset_for_tree.tres" id="2_f2txt"]
@@ -6,6 +6,7 @@
 [ext_resource type="TileSet" uid="uid://d05agfyvdy2b0" path="res://tileset_for_ui.tres" id="4_f2txt"]
 [ext_resource type="Script" uid="uid://br15alhcmnn5" path="res://quit.gd" id="5_f2txt"]
 [ext_resource type="Texture2D" uid="uid://bhujiqj56btla" path="res://assets/gate.png" id="6_1ainy"]
+[ext_resource type="Script" uid="uid://dsemcgstpuj04" path="res://to_settings.gd" id="7_n6hdu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0b4ue"]
 size = Vector2(1280, 32)
@@ -15,6 +16,9 @@ size = Vector2(45, 67)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f2txt"]
 size = Vector2(93, 644)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n6hdu"]
+size = Vector2(45, 67)
 
 [node name="Main" type="Node2D"]
 position = Vector2(555, 474)
@@ -55,11 +59,16 @@ position = Vector2(-599.5, 121.5)
 shape = SubResource("RectangleShape2D_1ainy")
 
 [node name="Quit" type="Label" parent="quit"]
-offset_left = -549.0
+offset_left = -555.0
 offset_top = 78.0
 offset_right = -450.0
-offset_bottom = 127.0
+offset_bottom = 107.0
 text = "Quit"
+
+[node name="Gate" type="Sprite2D" parent="quit"]
+position = Vector2(-599, 106)
+scale = Vector2(1, 1.11667)
+texture = ExtResource("6_1ainy")
 
 [node name="to the forest" type="Area2D" parent="."]
 script = ExtResource("5_f2txt")
@@ -68,10 +77,25 @@ script = ExtResource("5_f2txt")
 position = Vector2(649, -169)
 shape = SubResource("RectangleShape2D_f2txt")
 
-[node name="Gate" type="Sprite2D" parent="."]
-position = Vector2(-599, 106)
-scale = Vector2(1, 1.11667)
+[node name="settings" type="Area2D" parent="."]
+position = Vector2(-599, -136)
+script = ExtResource("7_n6hdu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="settings"]
+shape = SubResource("RectangleShape2D_n6hdu")
+
+[node name="Quit" type="Label" parent="settings"]
+offset_left = 46.0
+offset_top = -68.0
+offset_right = 145.0
+offset_bottom = -43.0
+text = "Settings"
+
+[node name="Gate" type="Sprite2D" parent="settings"]
+position = Vector2(-1, -22)
+scale = Vector2(1, 1.24695)
 texture = ExtResource("6_1ainy")
 
 [connection signal="body_entered" from="quit" to="." method="_on_quit_body_entered"]
 [connection signal="body_entered" from="to the forest" to="to the forest" method="_on_body_entered"]
+[connection signal="body_entered" from="settings" to="settings" method="_on_body_entered"]
