@@ -3,6 +3,8 @@ extends CharacterBody2D
 @export var enable_gravity:=false
 @export var tree_layer:TileMapLayer
 @export var explode_scene:PackedScene=preload("res://explode.tscn")
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const SPRINT_ACCELERATE=2
@@ -28,6 +30,8 @@ func _physics_process(delta: float) -> void:
 		velocity.y = directionY * SPEED
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
+	if direction:
+		play_walk_left()
 	velocity*=lerp(1,SPRINT_ACCELERATE,Input.get_action_strength("sprint"))
 	move_and_slide()
 func chop():
@@ -56,3 +60,15 @@ func chopPos(start_pos:Vector2):
 			const vectors=[Vector2(0,1),Vector2(0,-1),Vector2(1,0),Vector2(-1,0),]
 			for e in vectors:
 				q.push_back(pos+e)
+
+func play_walk_down():
+	animated_sprite_2d.play("walk_down")
+
+func play_walk_up():
+	animated_sprite_2d.play("walk_up")
+
+func play_walk_left():
+	animated_sprite_2d.play("walk_left")
+
+func play_walk_right():
+	animated_sprite_2d.play("walk_right")
