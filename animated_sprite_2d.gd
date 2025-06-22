@@ -45,10 +45,11 @@ func _physics_process(delta: float) -> void:
 			animation_player.play("walk_right")
 	if directionY:
 		var vel=velocity.normalized().y
-		if vel==-1 and animation_player.current_animation!="walk_up":
+		if vel==-1 and (animation_player.current_animation!="walk_up"):
 			animation_player.play("walk_up")
 		if vel==1 and animation_player.current_animation!="walk_down":
 			animation_player.play("walk_down")
+	if !(direction or directionY):animation_player.play("stop")
 	move_and_slide()
 func chop():
 	var pos=tree_layer.local_to_map(position)
