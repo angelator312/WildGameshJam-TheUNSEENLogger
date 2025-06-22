@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var tree_layer:TileMapLayer
 @export var explode_scene:PackedScene=preload("res://explode.tscn")
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -31,7 +32,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 	if direction:
-		play_walk_left()
+		animation_player.play("walk_up")
 	velocity*=lerp(1,SPRINT_ACCELERATE,Input.get_action_strength("sprint"))
 	move_and_slide()
 func chop():

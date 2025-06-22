@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cooqm5wnbxofy"]
+[gd_scene load_steps=42 format=3 uid="uid://cooqm5wnbxofy"]
 
 [ext_resource type="Script" uid="uid://isjvtvvfu332" path="res://animated_sprite_2d.gd" id="1_80eo1"]
 [ext_resource type="Texture2D" uid="uid://bgontenh5bs5g" path="res://assets/Tilesheet/universal-lpc-sprite_male_01_full.png" id="2_80eo1"]
@@ -280,6 +280,28 @@ animations = [{
 radius = 38.4
 height = 104.177
 
+[sub_resource type="Animation" id="Animation_80eo1"]
+resource_name = "walk_up"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_walk_up"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hlcgf"]
+_data = {
+&"walk_up": SubResource("Animation_80eo1")
+}
+
 [node name="AnimatedSprite2D" type="CharacterBody2D"]
 scale = Vector2(0.442708, 0.518349)
 script = ExtResource("1_80eo1")
@@ -296,3 +318,8 @@ shape = SubResource("CapsuleShape2D_80eo1")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -500)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_hlcgf")
+}
