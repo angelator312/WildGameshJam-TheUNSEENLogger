@@ -41,12 +41,16 @@ func chop():
 		
 func chopPos(start_pos:Vector2):
 	var q:Array
+	var minati:Array
 	q.push_back(start_pos)
 	while(!q.is_empty()):
 		var pos=q.front()
 		q.pop_front()
-		if tree_layer.get_cell_atlas_coords(pos).x>-1:
+		var cord= tree_layer.get_cell_atlas_coords(pos)
+		if cord.x>-1:
+			if(minati.find(cord)>-1):continue
+			minati.push_back(cord)
 			tree_layer.set_cell(pos)
-			const vectors=[Vector2(0,1),Vector2(1,0),Vector2(0,-1),Vector2(-1,0),]
+			const vectors=[Vector2(0,1),Vector2(0,-1),Vector2(1,0),Vector2(-1,0),]
 			for e in vectors:
 				q.push_back(pos+e)
