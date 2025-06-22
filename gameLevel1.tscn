@@ -31,7 +31,7 @@ size = Vector2(682, 734)
 [node name="GameLevel1" type="Node2D"]
 
 [node name="AnimatedSprite2D" parent="." node_paths=PackedStringArray("tree_layer") instance=ExtResource("1_o58gp")]
-position = Vector2(576, 580)
+position = Vector2(21.0001, 576)
 collision_layer = 3
 collision_mask = 3
 enable_camera = true
@@ -68,7 +68,7 @@ offset_left = -373.0
 offset_top = 127.0
 offset_right = -290.0
 offset_bottom = 150.0
-text = "Go to start"
+text = "Go to main menu"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Go to start"]
 position = Vector2(-426, 203)

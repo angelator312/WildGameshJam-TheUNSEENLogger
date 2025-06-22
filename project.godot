@@ -32,6 +32,10 @@ config/windows_native_icon="uid://cvhhxkw1kttk3"
 GlobalScript="*res://GlobalScript.gd"
 SodaAudioManager="*res://addons/SodaAudioManager/Scenes/soda_audio_manager.scn"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/SodaAudioManager/plugin.cfg", "res://addons/goutte.animated_shape_2d/plugin.cfg", "res://addons/script-ide/plugin.cfg", "res://addons/slidergamepad/plugin.cfg")
