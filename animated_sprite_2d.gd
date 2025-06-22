@@ -31,6 +31,13 @@ func _physics_process(delta: float) -> void:
 func chop():
 	var pos=tree_layer.local_to_map(position)
 	if tree_layer.get_cell_atlas_coords(pos).x>-1:
-		tree_layer.set_cell(pos)
+		chopPos(pos)
+		
 		#TODO: Implement deleting the entire tree
 		
+func chopPos(pos:Vector2):
+	if tree_layer.get_cell_atlas_coords(pos).x>-1:
+		tree_layer.set_cell(pos)
+		const vectors=[Vector2(0,1),Vector2(1,0),Vector2(0,-1),Vector2(-1,0),]
+		for e in vectors:
+			chopPos(pos+e)
