@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://cooqm5wnbxofy"]
+[gd_scene load_steps=46 format=3 uid="uid://cooqm5wnbxofy"]
 
 [ext_resource type="Script" uid="uid://isjvtvvfu332" path="res://animated_sprite_2d.gd" id="1_80eo1"]
 [ext_resource type="Texture2D" uid="uid://bgontenh5bs5g" path="res://assets/Tilesheet/universal-lpc-sprite_male_01_full.png" id="2_80eo1"]
@@ -282,7 +282,6 @@ height = 104.177
 
 [sub_resource type="Animation" id="Animation_hlcgf"]
 resource_name = "walk_down"
-length = 2.0
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -303,7 +302,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_5001y"]
 resource_name = "walk_left"
-length = 2.0
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -324,7 +322,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_ivbio"]
 resource_name = "walk_right"
-length = 2.0
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -345,7 +342,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_80eo1"]
 resource_name = "walk_up"
-length = 2.0
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -364,8 +360,41 @@ tracks/0/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_jaecg"]
+resource_name = "stop"
+length = 0.01
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"stop_walk"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [false],
+"method": &"stop"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hlcgf"]
 _data = {
+&"stop": SubResource("Animation_jaecg"),
 &"walk_down": SubResource("Animation_hlcgf"),
 &"walk_left": SubResource("Animation_5001y"),
 &"walk_right": SubResource("Animation_ivbio"),
