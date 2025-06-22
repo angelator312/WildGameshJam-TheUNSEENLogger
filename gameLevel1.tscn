@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://bt5jomc7kwqp1"]
+[gd_scene load_steps=13 format=4 uid="uid://bt5jomc7kwqp1"]
 
 [ext_resource type="PackedScene" uid="uid://cooqm5wnbxofy" path="res://geroi.tscn" id="1_o58gp"]
 [ext_resource type="TileSet" uid="uid://bdw5jfdqcd2ov" path="res://tileset_for_tree.tres" id="2_jbix7"]
@@ -7,6 +7,7 @@
 [ext_resource type="TileSet" uid="uid://bjn2thgvpef23" path="res://explorercardtileset.tres" id="5_njfpx"]
 [ext_resource type="Script" uid="uid://boa01yfgujj66" path="res://go_to_start.gd" id="5_t3yan"]
 [ext_resource type="Script" uid="uid://v28wi15bs12k" path="res://show_explorer_card.gd" id="7_njfpx"]
+[ext_resource type="PackedScene" uid="uid://dd1hkxdpsfnhq" path="res://game_end.tscn" id="8_3ohja"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hlnxh"]
 texture = ExtResource("4_hlnxh")
@@ -80,5 +81,10 @@ script = ExtResource("7_njfpx")
 position = Vector2(18550, 6710)
 shape = SubResource("RectangleShape2D_3ohja")
 
+[node name="GameEnd" parent="." node_paths=PackedStringArray("tree_layer") instance=ExtResource("8_3ohja")]
+position = Vector2(939, 446)
+tree_layer = NodePath("../Layers/TreeLayer")
+
+[connection signal="chop_tree" from="AnimatedSprite2D" to="GameEnd" method="is_ended"]
 [connection signal="body_entered" from="Go to start" to="Go to start" method="_on_body_entered"]
 [connection signal="body_entered" from="ExplorerCard" to="ExplorerCard" method="_on_body_entered"]

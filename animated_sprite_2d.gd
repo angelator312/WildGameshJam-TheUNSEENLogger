@@ -6,6 +6,7 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const SPRINT_ACCELERATE=2
+signal chop_tree
 func _ready():
 	$Camera2D.enabled=enable_camera
 func _unhandled_input(event: InputEvent) -> void:
@@ -38,6 +39,7 @@ func chop():
 		exp.position=position+Vector2(0,-20)
 		get_parent().add_child(exp)
 		exp.explode()
+		chop_tree.emit()
 		
 func chopPos(start_pos:Vector2):
 	var q:Array

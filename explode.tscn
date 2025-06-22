@@ -96,6 +96,7 @@ animations = [{
 }]
 
 [node name="Sprite2D" type="AnimatedSprite2D"]
+process_mode = 3
 sprite_frames = SubResource("SpriteFrames_o7u8p")
 animation = &"first"
 script = ExtResource("2_dc1yq")
